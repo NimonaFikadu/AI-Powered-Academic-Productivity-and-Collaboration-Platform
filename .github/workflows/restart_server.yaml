@@ -1,0 +1,41 @@
+name: Restart Node.js Server
+
+on:
+  workflow_run:
+    workflows: ["Deploy to cPanel"]
+    types:
+      - completed
+
+jobs:
+  restart:
+    name: Restart Node.js Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Restart Node.js Application
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/hotspot_github_rsa
+          chmod 600 ~/.ssh/hotspot_github_rsa
+          ssh-keyscan -H ${{ secrets.CPANEL_HOST }} >> ~/.ssh/known_hosts
+          ssh -t -t -i ~/.ssh/hotspot_github_rsa -o StrictHostKeyChecking=no ${{ secrets.CPANEL_USERNAME }}@${{ secrets.CPANEL_HOST }} << 'EOF'
+            # Load Node.js environment
+            source /home/horanet/nodevenv/unihub-api.horan.et/22/bin/activate
+            cd /home/horanet/unihub-api.horan.et
+
+            # Kill the existing process
+            PID=$(ps -aef | grep "lsnode:/home/horanet/unihub-api.horan.et/" | grep -v grep | awk '{print $2}')
+            if [ ! -z "$PID" ]; then
+              echo "Killing existing process $PID..."
+              kill -9 $PID
+            fi
+
+            # Restart the application
+            echo "Starting application..."
+            node index.js > output.log 2>&1 &
+
+            # Exit successfully after execution
+            exit 0
+          EOF

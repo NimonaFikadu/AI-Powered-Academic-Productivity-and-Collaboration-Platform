@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>UniHub – Use Case Diagram</title>
+<style>
+  body { margin: 0; background: #fff; font-family: Arial, sans-serif; }
+  svg text { font-family: Arial, sans-serif; }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1380" viewBox="0 0 2200 1380">
+<defs>
+  <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0,10 3.5,0 7" fill="#333"/>
+  </marker>
+  <style>
+    .uc         { fill:#fff; stroke:#222; stroke-width:1.6; }
+    .uc-premium { fill:#fffde7; stroke:#e6a800; stroke-width:1.6; stroke-dasharray:6,3; }
+    .uc-admin   { fill:#fce4ec; stroke:#b71c1c; stroke-width:1.6; }
+    .gb-blue    { fill:#eef4ff; stroke:#7a9fd4; stroke-width:1.2; }
+    .gb-green   { fill:#efffef; stroke:#6ab87a; stroke-width:1.2; }
+    .gb-yellow  { fill:#fffde7; stroke:#e6a800; stroke-width:1.2; }
+    .gb-red     { fill:#fce4ec; stroke:#b71c1c; stroke-width:1.2; }
+    .gb-purple  { fill:#f3e5f5; stroke:#8e44ad; stroke-width:1.2; }
+    .gl-blue    { font-size:13px; font-weight:bold; fill:#1a3a6a; }
+    .gl-green   { font-size:13px; font-weight:bold; fill:#1a5a2a; }
+    .gl-yellow  { font-size:13px; font-weight:bold; fill:#7a5500; }
+    .gl-red     { font-size:13px; font-weight:bold; fill:#7a0000; }
+    .gl-purple  { font-size:13px; font-weight:bold; fill:#5a1070; }
+    .uc-lbl     { font-size:12.5px; fill:#111; }
+    .actor-lbl  { font-size:14px; font-weight:bold; fill:#111; }
+    .ext-lbl    { font-size:11px; font-style:italic; fill:#555; }
+    .line-std   { stroke:#555; stroke-width:1.1; fill:none; }
+    .line-ext   { stroke:#555; stroke-width:1.2; fill:none; stroke-dasharray:7,4; }
+    .title      { font-size:22px; font-weight:bold; fill:#111; }
+  </style>
+</defs>
+
+<!-- Title -->
+<text x="1100" y="26" text-anchor="middle" class="title">UniHub – Use Case Diagram</text>
+
+<!-- System boundary -->
+<rect x="260" y="38" width="1680" height="1320" fill="none" stroke="#000" stroke-width="2.2" rx="6"/>
+
+<!-- ══ GROUP BACKGROUNDS (left half) ══ -->
+<!-- Authentication -->
+<rect x="278" y="55" width="224" height="478" rx="8" class="gb-blue"/>
+<text x="390" y="73" text-anchor="middle" class="gl-blue">Authentication</text>
+<!-- Topics -->
+<rect x="538" y="55" width="224" height="393" rx="8" class="gb-blue"/>
+<text x="650" y="73" text-anchor="middle" class="gl-blue">Topics</text>
+<!-- Notes -->
+<rect x="798" y="55" width="224" height="308" rx="8" class="gb-blue"/>
+<text x="910" y="73" text-anchor="middle" class="gl-blue">Notes</text>
+<!-- Materials -->
+<rect x="278" y="598" width="224" height="308" rx="8" class="gb-green"/>
+<text x="390" y="616" text-anchor="middle" class="gl-green">Study Materials</text>
+<!-- Collaboration -->
+<rect x="538" y="598" width="224" height="393" rx="8" class="gb-green"/>
+<text x="650" y="616" text-anchor="middle" class="gl-green">Collaboration</text>
+<!-- Progress -->
+<rect x="798" y="598" width="224" height="308" rx="8" class="gb-blue"/>
+<text x="910" y="616" text-anchor="middle" class="gl-blue">Progress &amp; Calendar</text>
+
+<!-- ══ GROUP BACKGROUNDS (right half) ══ -->
+<!-- Quizzes -->
+<rect x="1058" y="55" width="224" height="393" rx="8" class="gb-blue"/>
+<text x="1170" y="73" text-anchor="middle" class="gl-blue">Quizzes</text>
+<!-- AI / Premium -->
+<rect x="1318" y="55" width="224" height="308" rx="8" class="gb-yellow"/>
+<text x="1430" y="73" text-anchor="middle" class="gl-yellow">AI / Premium</text>
+<!-- Admin UCs -->
+<rect x="1578" y="55" width="338" height="222" rx="8" class="gb-red"/>
+<text x="1747" y="73" text-anchor="middle" class="gl-red">Administration</text>
+<!-- Payment -->
+<rect x="1318" y="428" width="224" height="138" rx="8" class="gb-yellow"/>
+<text x="1430" y="446" text-anchor="middle" class="gl-yellow">Payment</text>
+<!-- Generate Quiz AI (separate sub-box below quizzes) -->
+<rect x="1058" y="513" width="224" height="83" rx="8" class="gb-yellow"/>
+<text x="1170" y="531" text-anchor="middle" class="gl-yellow">AI Extension</text>
+
+<!-- ══ USE CASES – Col 1 cx=390 ══ -->
+<ellipse cx="390" cy="100" rx="108" ry="24" class="uc"/><text x="390" y="104" text-anchor="middle" class="uc-lbl">Register / Sign Up</text>
+<ellipse cx="390" cy="185" rx="108" ry="24" class="uc"/><text x="390" y="189" text-anchor="middle" class="uc-lbl">Login</text>
+<ellipse cx="390" cy="270" rx="108" ry="24" class="uc"/><text x="390" y="274" text-anchor="middle" class="uc-lbl">Logout</text>
+<ellipse cx="390" cy="355" rx="108" ry="24" class="uc"/><text x="390" y="359" text-anchor="middle" class="uc-lbl">Forgot Password</text>
+<ellipse cx="390" cy="440" rx="108" ry="24" class="uc"/><text x="390" y="444" text-anchor="middle" class="uc-lbl">Update Profile</text>
+<ellipse cx="390" cy="510" rx="108" ry="24" class="uc"/><text x="390" y="514" text-anchor="middle" class="uc-lbl">Upload Avatar</text>
+
+<ellipse cx="390" cy="645" rx="108" ry="24" class="uc"/><text x="390" y="649" text-anchor="middle" class="uc-lbl">Upload Material</text>
+<ellipse cx="390" cy="730" rx="108" ry="24" class="uc"/><text x="390" y="734" text-anchor="middle" class="uc-lbl">View Material</text>
+<ellipse cx="390" cy="815" rx="108" ry="24" class="uc"/><text x="390" y="819" text-anchor="middle" class="uc-lbl">Download Material</text>
+<ellipse cx="390" cy="900" rx="108" ry="24" class="uc"/><text x="390" y="904" text-anchor="middle" class="uc-lbl">Delete Material</text>
+
+<!-- Col 2 cx=650 -->
+<ellipse cx="650" cy="100" rx="108" ry="24" class="uc"/><text x="650" y="104" text-anchor="middle" class="uc-lbl">View Topics</text>
+<ellipse cx="650" cy="185" rx="108" ry="24" class="uc"/><text x="650" y="189" text-anchor="middle" class="uc-lbl">Create Topic</text>
+<ellipse cx="650" cy="270" rx="108" ry="24" class="uc"/><text x="650" y="274" text-anchor="middle" class="uc-lbl">Edit Topic</text>
+<ellipse cx="650" cy="355" rx="108" ry="24" class="uc"/><text x="650" y="359" text-anchor="middle" class="uc-lbl">Delete Topic</text>
+<ellipse cx="650" cy="440" rx="108" ry="24" class="uc"/><text x="650" y="444" text-anchor="middle" class="uc-lbl">View Topic Details</text>
+
+<ellipse cx="650" cy="645" rx="108" ry="24" class="uc"/><text x="650" y="649" text-anchor="middle" class="uc-lbl">View Community Feed</text>
+<ellipse cx="650" cy="730" rx="108" ry="24" class="uc"/><text x="650" y="734" text-anchor="middle" class="uc-lbl">Share Content</text>
+<ellipse cx="650" cy="815" rx="108" ry="24" class="uc"/><text x="650" y="819" text-anchor="middle" class="uc-lbl">Like Content</text>
+<ellipse cx="650" cy="900" rx="108" ry="24" class="uc"/><text x="650" y="904" text-anchor="middle" class="uc-lbl">Comment on Content</text>
+<ellipse cx="650" cy="985" rx="108" ry="24" class="uc"/><text x="650" y="989" text-anchor="middle" class="uc-lbl">Delete Own Post</text>
+
+<!-- Col 3 cx=910 -->
+<ellipse cx="910" cy="100" rx="108" ry="24" class="uc"/><text x="910" y="104" text-anchor="middle" class="uc-lbl">Create Note</text>
+<ellipse cx="910" cy="185" rx="108" ry="24" class="uc"/><text x="910" y="189" text-anchor="middle" class="uc-lbl">Edit Note</text>
+<ellipse cx="910" cy="270" rx="108" ry="24" class="uc"/><text x="910" y="274" text-anchor="middle" class="uc-lbl">Delete Note</text>
+<ellipse cx="910" cy="355" rx="108" ry="24" class="uc"/><text x="910" y="359" text-anchor="middle" class="uc-lbl">View Notes</text>
+
+<ellipse cx="910" cy="645" rx="108" ry="24" class="uc"/><text x="910" y="649" text-anchor="middle" class="uc-lbl">View Dashboard</text>
+<ellipse cx="910" cy="730" rx="108" ry="24" class="uc"/><text x="910" y="734" text-anchor="middle" class="uc-lbl">View Calendar</text>
+<ellipse cx="910" cy="815" rx="108" ry="24" class="uc"/><text x="910" y="819" text-anchor="middle" class="uc-lbl">Add Study Event</text>
+<ellipse cx="910" cy="900" rx="108" ry="24" class="uc"/><text x="910" y="904" text-anchor="middle" class="uc-lbl">Track Progress</text>
+
+<!-- Col 4 cx=1170 -->
+<ellipse cx="1170" cy="100" rx="108" ry="24" class="uc"/><text x="1170" y="104" text-anchor="middle" class="uc-lbl">Take Quiz</text>
+<ellipse cx="1170" cy="185" rx="108" ry="24" class="uc"/><text x="1170" y="189" text-anchor="middle" class="uc-lbl">Create Quiz</text>
+<ellipse cx="1170" cy="270" rx="108" ry="24" class="uc"/><text x="1170" y="274" text-anchor="middle" class="uc-lbl">View Quiz Results</text>
+<ellipse cx="1170" cy="355" rx="108" ry="24" class="uc"/><text x="1170" y="359" text-anchor="middle" class="uc-lbl">Delete Quiz</text>
+<!-- Extends -->
+<ellipse cx="1170" cy="557" rx="108" ry="24" class="uc-premium"/><text x="1170" y="561" text-anchor="middle" class="uc-lbl">Generate Quiz (AI)</text>
+
+<!-- Col 5 cx=1430 -->
+<ellipse cx="1430" cy="100" rx="108" ry="24" class="uc-premium"/><text x="1430" y="104" text-anchor="middle" class="uc-lbl">Chat with AI</text>
+<ellipse cx="1430" cy="185" rx="108" ry="24" class="uc-premium"/><text x="1430" y="189" text-anchor="middle" class="uc-lbl">View Advanced Stats</text>
+<ellipse cx="1430" cy="270" rx="108" ry="24" class="uc-premium"/><text x="1430" y="274" text-anchor="middle" class="uc-lbl">AI Topic Assistant</text>
+
+<ellipse cx="1430" cy="473" rx="108" ry="24" class="uc-premium"/><text x="1430" y="477" text-anchor="middle" class="uc-lbl">View Upgrade Plans</text>
+<ellipse cx="1430" cy="558" rx="108" ry="24" class="uc-premium"/><text x="1430" y="562" text-anchor="middle" class="uc-lbl">Subscribe to Premium</text>
+
+<!-- Col 6 cx=1747 -->
+<ellipse cx="1747" cy="100" rx="118" ry="24" class="uc-admin"/><text x="1747" y="104" text-anchor="middle" class="uc-lbl">Manage Users</text>
+<ellipse cx="1747" cy="185" rx="118" ry="24" class="uc-admin"/><text x="1747" y="189" text-anchor="middle" class="uc-lbl">View Platform Analytics</text>
+<ellipse cx="1747" cy="270" rx="118" ry="24" class="uc-admin"/><text x="1747" y="274" text-anchor="middle" class="uc-lbl">Moderate Content</text>
+
+<!-- ══ EXTENDS ARROWS ══ -->
+<!-- Create Quiz → Generate Quiz AI -->
+<line x1="1170" y1="209" x2="1170" y2="533" class="line-ext" marker-end="url(#arr)"/>
+<text x="1185" y="375" class="ext-lbl">«extends»</text>
+<!-- View Dashboard → View Advanced Stats (cross) -->
+<line x1="910" y1="669" x2="1322" y2="185" class="line-ext" marker-end="url(#arr)"/>
+<text x="1090" y="400" class="ext-lbl">«extends»</text>
+
+<!-- ══ LEFT ACTORS ══ -->
+<!-- GUEST cx=100, cy=240 -->
+<circle cx="100" cy="200" r="24" fill="none" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="224" x2="100" y2="295" stroke="#000" stroke-width="2.2"/>
+<line x1="58"  y1="255" x2="142" y2="255" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="295" x2="62"  y2="345" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="295" x2="138" y2="345" stroke="#000" stroke-width="2.2"/>
+<text x="100" y="370" text-anchor="middle" class="actor-lbl">Guest</text>
+
+<!-- STUDENT cx=100, cy=750 -->
+<circle cx="100" cy="710" r="24" fill="none" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="734" x2="100" y2="805" stroke="#000" stroke-width="2.2"/>
+<line x1="58"  y1="765" x2="142" y2="765" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="805" x2="62"  y2="855" stroke="#000" stroke-width="2.2"/>
+<line x1="100" y1="805" x2="138" y2="855" stroke="#000" stroke-width="2.2"/>
+<text x="100" y="880" text-anchor="middle" class="actor-lbl">Student</text>
+
+<!-- ══ RIGHT ACTORS ══ -->
+<!-- PREMIUM STUDENT cx=2100, cy=350 -->
+<circle cx="2100" cy="300" r="24" fill="none" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="324" x2="2100" y2="395" stroke="#000" stroke-width="2.2"/>
+<line x1="2058" y1="355" x2="2142" y2="355" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="395" x2="2062" y2="445" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="395" x2="2138" y2="445" stroke="#000" stroke-width="2.2"/>
+<text x="2100" y="470" text-anchor="middle" class="actor-lbl">Premium</text>
+<text x="2100" y="490" text-anchor="middle" class="actor-lbl">Student</text>
+
+<!-- ADMIN cx=2100, cy=900 -->
+<circle cx="2100" cy="860" r="24" fill="none" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="884" x2="2100" y2="955" stroke="#000" stroke-width="2.2"/>
+<line x1="2058" y1="915" x2="2142" y2="915" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="955" x2="2062" y2="1005" stroke="#000" stroke-width="2.2"/>
+<line x1="2100" y1="955" x2="2138" y2="1005" stroke="#000" stroke-width="2.2"/>
+<text x="2100" y="1030" text-anchor="middle" class="actor-lbl">Admin</text>
+
+<!-- AI ENGINE cx=2100, cy=600 -->
+<rect x="2050" y="570" width="100" height="60" rx="4" fill="#f0f0f0" stroke="#000" stroke-width="2.2"/>
+<text x="2100" y="595" text-anchor="middle" class="ext-lbl">«system»</text>
+<text x="2100" y="615" text-anchor="middle" class="actor-lbl">AI Engine</text>
+
+<!-- ══ LEFT ACTOR LINES ══ -->
+<!-- Guest → Register, Login, Forgot Password -->
+<line x1="124" y1="212" x2="282" y2="100" class="line-std"/>
+<line x1="124" y1="218" x2="282" y2="185" class="line-std"/>
+<line x1="124" y1="224" x2="282" y2="355" class="line-std"/>
+
+<!-- Student → Auth -->
+<line x1="124" y1="718" x2="282" y2="185" class="line-std"/>
+<line x1="124" y1="720" x2="282" y2="270" class="line-std"/>
+<line x1="124" y1="722" x2="282" y2="440" class="line-std"/>
+<line x1="124" y1="724" x2="282" y2="510" class="line-std"/>
+<!-- Student → Topics -->
+<line x1="124" y1="712" x2="542" y2="100" class="line-std"/>
+<line x1="124" y1="713" x2="542" y2="185" class="line-std"/>
+<line x1="124" y1="714" x2="542" y2="270" class="line-std"/>
+<line x1="124" y1="715" x2="542" y2="355" class="line-std"/>
+<line x1="124" y1="716" x2="542" y2="440" class="line-std"/>
+<!-- Student → Notes -->
+<line x1="124" y1="708" x2="802" y2="100" class="line-std"/>
+<line x1="124" y1="709" x2="802" y2="185" class="line-std"/>
+<line x1="124" y1="710" x2="802" y2="270" class="line-std"/>
+<line x1="124" y1="711" x2="802" y2="355" class="line-std"/>
+<!-- Student → Materials -->
+<line x1="124" y1="726" x2="282" y2="645" class="line-std"/>
+<line x1="124" y1="728" x2="282" y2="730" class="line-std"/>
+<line x1="124" y1="730" x2="282" y2="815" class="line-std"/>
+<line x1="124" y1="732" x2="282" y2="900" class="line-std"/>
+<!-- Student → Collaboration -->
+<line x1="124" y1="734" x2="542" y2="645" class="line-std"/>
+<line x1="124" y1="736" x2="542" y2="730" class="line-std"/>
+<line x1="124" y1="738" x2="542" y2="815" class="line-std"/>
+<line x1="124" y1="740" x2="542" y2="900" class="line-std"/>
+<line x1="124" y1="742" x2="542" y2="985" class="line-std"/>
+<!-- Student → Progress -->
+<line x1="124" y1="704" x2="802" y2="645" class="line-std"/>
+<line x1="124" y1="705" x2="802" y2="730" class="line-std"/>
+<line x1="124" y1="706" x2="802" y2="815" class="line-std"/>
+<line x1="124" y1="707" x2="802" y2="900" class="line-std"/>
+<!-- Student → Quizzes (basic) -->
+<line x1="124" y1="700" x2="1062" y2="100" class="line-std"/>
+<line x1="124" y1="701" x2="1062" y2="185" class="line-std"/>
+<line x1="124" y1="702" x2="1062" y2="270" class="line-std"/>
+<line x1="124" y1="703" x2="1062" y2="355" class="line-std"/>
+
+<!-- ══ RIGHT ACTOR LINES ══ -->
+<!-- Premium → AI use cases -->
+<line x1="2076" y1="312" x2="1538" y2="100" class="line-std"/>
+<line x1="2076" y1="318" x2="1538" y2="185" class="line-std"/>
+<line x1="2076" y1="324" x2="1538" y2="270" class="line-std"/>
+<!-- Premium → Generate Quiz AI -->
+<line x1="2076" y1="330" x2="1278" y2="557" class="line-std"/>
+<!-- Premium → Payment -->
+<line x1="2076" y1="336" x2="1538" y2="473" class="line-std"/>
+<line x1="2076" y1="342" x2="1538" y2="558" class="line-std"/>
+
+<!-- Admin → Admin use cases -->
+<line x1="2076" y1="868" x2="1865" y2="100" class="line-std"/>
+<line x1="2076" y1="874" x2="1865" y2="185" class="line-std"/>
+<line x1="2076" y1="880" x2="1865" y2="270" class="line-std"/>
+
+<!-- AI Engine → AI use cases -->
+<line x1="2050" y1="585" x2="1538" y2="100" class="line-std" stroke-dasharray="4,4"/>
+<line x1="2050" y1="600" x2="1538" y2="270" class="line-std" stroke-dasharray="4,4"/>
+<line x1="2050" y1="615" x2="1278" y2="557" class="line-std" stroke-dasharray="4,4"/>
+
+<!-- ══ LEGEND ══ -->
+<rect x="275" y="1050" width="340" height="200" rx="6" fill="#f9f9f9" stroke="#aaa" stroke-width="1.2"/>
+<text x="445" y="1073" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Legend</text>
+<line x1="292" y1="1093" x2="347" y2="1093" stroke="#555" stroke-width="1.2"/>
+<text x="355" y="1097" font-size="12" fill="#333">Association line</text>
+<line x1="292" y1="1118" x2="347" y2="1118" stroke="#555" stroke-width="1.3" stroke-dasharray="6,4"/>
+<polygon points="347,1114 357,1118 347,1122" fill="#333"/>
+<text x="365" y="1122" font-size="12" fill="#333">«extends» relationship</text>
+<ellipse cx="315" cy="1148" rx="22" ry="12" class="uc"/>
+<text x="345" y="1152" font-size="12" fill="#333">Standard use case</text>
+<ellipse cx="315" cy="1178" rx="22" ry="12" class="uc-premium"/>
+<text x="345" y="1182" font-size="12" fill="#333">Premium-only use case</text>
+<ellipse cx="315" cy="1208" rx="22" ry="12" class="uc-admin"/>
+<text x="345" y="1212" font-size="12" fill="#333">Admin-only use case</text>
+
+<!-- Side labels for actors -->
+<text x="50" y="40" font-size="13" font-weight="bold" fill="#1a3a6a">LEFT ACTORS</text>
+<text x="1940" y="40" font-size="13" font-weight="bold" fill="#1a3a6a" text-anchor="middle">RIGHT ACTORS</text>
+
+</svg>
+</body>
+</html>

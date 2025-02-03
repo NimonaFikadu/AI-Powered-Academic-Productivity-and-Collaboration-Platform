@@ -1,0 +1,36 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    name: Deploy API to cPanel
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read  # Required for checking out the code
+      deployments: write  # Required for creating deployments
+
+    steps:
+      - name: Debug Repository URL
+        run: |
+          echo "Repository URL: https://github.com/${{ github.repository }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./Backend/
+          server-dir: /
+          protocol: ftps
+          timeout: 600000
+          log-level: standard
+
+     
